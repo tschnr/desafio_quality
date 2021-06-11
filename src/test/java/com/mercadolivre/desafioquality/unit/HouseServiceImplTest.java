@@ -8,17 +8,18 @@ import com.mercadolivre.desafioquality.models.House;
 import com.mercadolivre.desafioquality.models.Room;
 import com.mercadolivre.desafioquality.repositories.DistrictRepository;
 import com.mercadolivre.desafioquality.services.HouseServiceImpl;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.List;
 
-@SpringBootTest
+@ExtendWith({SpringExtension.class})
 @Import({HouseServiceImpl.class, DistrictRepository.class})
 public class HouseServiceImplTest {
 
@@ -27,8 +28,8 @@ public class HouseServiceImplTest {
 
     static House house;
 
-    @BeforeAll
-    static void initHouse(){
+    @BeforeEach
+     void initHouse(){
         house = new House();
         house.setProp_name("Casa das casas");
         house.setProp_district("Colonia");
@@ -55,27 +56,18 @@ public class HouseServiceImplTest {
         assertEquals(257., totalMeters);
     }
 
-    @Test
-    public void testCalculateTotalHouseMetersNotEquals(){
-        HouseTotalMetersResponseDTO houseTotalMetersResponseDTO =  houseServiceImpl.calculateTotalHouseMeters(house);
-
-        double totalMeters = houseTotalMetersResponseDTO.getMeters_total();
-
-        assertNotEquals(257.1, totalMeters);
-    }
-
 
     @Test
     public void testDistrictExists(){
 
-        assertDoesNotThrow(() -> { houseServiceImpl.calculateHouseValue(house); });
+        assertDoesNotThrow(() -> houseServiceImpl.validDistrict(house));
     }
 
     @Test
     public void testDistrictIfNotExist(){
         house.setProp_district("Santa Luzia");
 
-        assertThrows(DistrictNotFound.class, () -> houseServiceImpl.calculateHouseValue(house));
+        assertThrows(DistrictNotFound.class, () -> houseServiceImpl.validDistrict(house));
     }
 
 
@@ -134,5 +126,4 @@ public class HouseServiceImplTest {
         assertNotEquals(205600.01, valueTotal);
 
     }
-
 }

@@ -18,9 +18,6 @@ public class RoomBiggestResponseDTO {
         this.house = house;
     }
 
-    public RoomBiggestResponseDTO() {
-    }
-
     public Room getRoom_biggest() {
         return room_biggest;
     }

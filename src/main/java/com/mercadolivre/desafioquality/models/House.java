@@ -23,12 +23,6 @@ public class House {
     public House() {
     }
 
-    public House(String prop_name, String prop_district, List<Room> rooms) {
-        this.prop_name = prop_name;
-        this.prop_district = prop_district;
-        this.rooms = rooms;
-    }
-
     public String getProp_name() {
         return prop_name;
     }
@@ -52,4 +46,6 @@ public class House {
     public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
     }
+
+
 }

@@ -28,8 +28,15 @@ public class ApiExceptionControllerAdvice {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<Object> errorHttpMessageNotReadableException(HttpMessageNotReadableException e, HttpServletRequest request) {
 
-        return new ResponseEntity<>("Invalid filed", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("Invalid field", HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(NullPointerException.class)
+    public ResponseEntity<Object> nullPointerException(NullPointerException e) {
+
+        return new ResponseEntity<>("Invalid body", HttpStatus.BAD_REQUEST);
+    }
+
 
     @ExceptionHandler(DistrictNotFound.class)
     public ResponseEntity<Object> districtNotFound(){

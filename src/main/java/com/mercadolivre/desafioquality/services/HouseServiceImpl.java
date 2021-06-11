@@ -20,8 +20,6 @@ public class HouseServiceImpl implements HouseService{
         this.districtRepository = districtRepository;
     }
 
-//    public HouseServiceImpl() {}
-
     @Override
     public HouseTotalMetersResponseDTO calculateTotalHouseMeters(House house) {
 
@@ -57,7 +55,7 @@ public class HouseServiceImpl implements HouseService{
         return new RoomsMetersResponseDTO(house.getProp_name(), house.getProp_district(), room);
     }
 
-    private void validDistrict(House house) {
+    public void validDistrict(House house) {
         if (!districtRepository.districts().containsKey(house.getProp_district())) throw new DistrictNotFound();
     }
 

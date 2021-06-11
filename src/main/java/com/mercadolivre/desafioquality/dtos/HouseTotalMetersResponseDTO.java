@@ -12,9 +12,6 @@ public class HouseTotalMetersResponseDTO {
     @Valid
     private House house;
 
-    public HouseTotalMetersResponseDTO() {
-    }
-
     public HouseTotalMetersResponseDTO(@NotNull Double meters_total, @Valid House house) {
         this.meters_total = meters_total;
         this.house = house;

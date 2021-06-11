@@ -12,9 +12,6 @@ public class HouseValueResponseDTO {
     @Valid
     private House house;
 
-    public HouseValueResponseDTO() {
-    }
-
     public HouseValueResponseDTO(@NotNull Double value_house, @Valid House house) {
         this.value_house = value_house;
         this.house = house;

@@ -1,7 +1,5 @@
 package com.mercadolivre.desafioquality.dtos;
 
-import com.mercadolivre.desafioquality.models.Room;
-
 import javax.validation.constraints.*;
 
 public class RoomDTO {
@@ -24,13 +22,6 @@ public class RoomDTO {
 
     public RoomDTO(){
 
-    }
-
-    public RoomDTO(String room_name, Double room_width, Double room_length, Double total_meters) {
-        this.room_name = room_name;
-        this.room_width = room_width;
-        this.room_length = room_length;
-        this.total_meters = total_meters;
     }
 
     public String getRoom_name() {

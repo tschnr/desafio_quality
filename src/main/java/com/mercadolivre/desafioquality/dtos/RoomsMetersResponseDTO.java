@@ -1,13 +1,10 @@
 package com.mercadolivre.desafioquality.dtos;
 
-import com.mercadolivre.desafioquality.models.District;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.List;
-import java.util.Set;
 
 public class RoomsMetersResponseDTO {
     @NotEmpty(message = "Property name cannot be empty.")
