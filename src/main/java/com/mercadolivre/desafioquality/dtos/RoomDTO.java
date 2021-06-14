@@ -14,7 +14,7 @@ public class RoomDTO {
     Double room_width;
 
     @NotNull(message = "Room length cannot be empty.")
-    @Max(value = 25, message = "The maximum length allowed per room is 33 meters.")
+    @Max(value = 33, message = "The maximum length allowed per room is 33 meters.")
     Double room_length;
 
     @NotNull
