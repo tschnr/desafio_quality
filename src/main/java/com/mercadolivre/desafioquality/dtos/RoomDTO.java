@@ -6,7 +6,7 @@ public class RoomDTO {
 
     @NotEmpty(message = "Room name cannot be empty.")
     @Size(max = 30, message = "Room length cannot exceed 30 characters.")
-    @Pattern(regexp = "^[A-Z][ [A-z]+]*", message = "The room name must start with a capital letter.")
+    @Pattern(regexp = "^[A-Z].*", message = "The room name must start with a capital letter.")
     String room_name;
 
     @NotNull(message = "Room width cannot be empty.")

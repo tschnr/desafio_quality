@@ -10,7 +10,7 @@ public class House {
 
     @NotEmpty(message = "Property name cannot be empty.")
     @Size(max = 30, message = "The length of the name cannot exceed 30 characters.")
-    @Pattern(regexp = "^[A-Z][ [A-z]+]*", message = "The property name must start with a capital letter")
+    @Pattern(regexp = "^[A-Z].*", message = "The property name must start with a capital letter")
     private String prop_name;
 
     @NotEmpty(message = "Neighborhood name cannot be empty.")
